@@ -2,20 +2,14 @@
 #include <string.h>
 #include "calculator.h"
 #include "tests.h"
+#include "testmanager.h"
 
-int allTestsPassed = 1;
-
-int counter = 0;
-char allMessages[10][50];
 void sumTest();
 void minusTest();
 void multiplicationTest();
 void divideTest();
 void powerTest();
 void facultyTest();
-
-void writeResult();
-void fail();
 
 void sumTest() {
     int result = Calculator.sum(4, 6);
@@ -84,26 +78,6 @@ void facultyTest() {
         fail("FacultyTest failed, unexpected value");
     }
 }
-
-//HELPER FUNCTIONS
-void writeResult() {
-    int i;
-    for(i = 0; i < counter; i++) {
-        printf("%s\n", allMessages[i]);
-    }
-
-    if(allTestsPassed == 1) {
-        printf("\n\nAll tests passed. OK\n");
-    } else {
-        printf("\n\nNot all tests passed. FAILED\n");
-    }
-}
-
-void fail(char errorMessage[]) {
-    allTestsPassed = 0;
-    strcpy(allMessages[counter], errorMessage);
-    counter += 1;
-}
                                                              
 const struct test Test = {
     .sumTest = sumTest,
@@ -112,7 +86,7 @@ const struct test Test = {
     .divideTest = divideTest,
     .powerTest = powerTest,
     .facultyTest = facultyTest,
-    .writeResult = writeResult
+    .writeResult = writeResults
 };
 
 
