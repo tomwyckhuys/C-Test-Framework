@@ -19,3 +19,35 @@ Documentation
 
 ---
 
+Examples
+--------
+####A simple test
+```C
+void myTestFunction() {
+  int result = sum(4, 5);
+  if (result != 9) {
+    fail("myTestFunction() failed.. Expected other value");
+  }
+}
+```
+
+####Complete file
+> tests.c
+
+```C
+#include "testmanager.h"
+int main();
+void myTestFunction();
+
+int main() {
+  myTestFunction();
+  return 0;
+}
+
+void myTestFunction() {
+  int result = sum(4, 5);
+  if (result != 9) {
+    fail("myTestFunction() failed.. Expected other value");
+  }
+}
+```
