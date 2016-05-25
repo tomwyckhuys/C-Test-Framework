@@ -25,9 +25,7 @@ Examples
 ```C
 void myTestFunction() {
   int result = sum(4, 5);
-  if (result != 9) {
-    fail("myTestFunction() failed.. Expected other value");
-  }
+  assertTrue("myTestFunction() failed.. Expected other value", result == 9);
 }
 ```
 
@@ -46,8 +44,6 @@ int main() {
 
 void myTestFunction() {
   int result = sum(4, 5);
-  if (result != 9) {
-    fail("myTestFunction() failed.. Expected other value");
-  }
+  assertTrue("myTestFunction() failed.. Expected other value", result == 9);
 }
 ```
